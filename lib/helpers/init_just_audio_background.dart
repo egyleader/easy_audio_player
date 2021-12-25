@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter_audioplayer/models/models.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 
-void initJustAudioBackground(NotificationSettings notificationSettings) => JustAudioBackground.init(
+Future<void> initJustAudioBackground(NotificationSettings notificationSettings) async => await JustAudioBackground.init(
       androidResumeOnClick: notificationSettings.androidResumeOnClick,
       androidNotificationChannelId: notificationSettings.androidNotificationChannelId,
       androidNotificationChannelName: notificationSettings.androidNotificationChannelName,
