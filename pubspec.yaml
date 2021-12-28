@@ -1,6 +1,6 @@
 name: flutter_audioplayer
 description: an easy widgets to  have audio player that can play remote or local audio files across all platforms without having to implement it from scratch.
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/egyleader/flutter_audioplayer.git
 
 environment:
