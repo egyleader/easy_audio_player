@@ -11,3 +11,5 @@ import 'package:just_audio_background/just_audio_background.dart';
 /// example 1. Todo: add example
 /// example 2. Todo: add example
 export 'services/audio_player_service.dart';
+export 'package:just_audio/just_audio.dart'
+    show AudioSource, HlsAudioSource, ClippingAudioSource, LoopingAudioSource, ProgressiveAudioSource, DashAudioSource;
