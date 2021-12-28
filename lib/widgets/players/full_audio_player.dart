@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_audioplayer/models/playlist.dart';
 import 'package:flutter_audioplayer/widgets/play_list_View.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';

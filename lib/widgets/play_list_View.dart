@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_audioplayer/models/playlist.dart';
 import 'package:just_audio/just_audio.dart';
 
 class PlaylistView extends StatelessWidget {
-  const PlaylistView({Key? key, required this.player , required this.playlist}) : super(key: key);
+  const PlaylistView({Key? key, required this.player, required this.playlist}) : super(key: key);
   final AudioPlayer player;
   final ConcatenatingAudioSource playlist;
   @override
