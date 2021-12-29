@@ -1,10 +1,6 @@
 import 'dart:developer';
 
 import 'package:audio_session/audio_session.dart';
-import 'package:flutter_audioplayer/helpers/init_just_audio_background.dart';
-import 'package:flutter_audioplayer/models/audio.dart';
-import 'package:flutter_audioplayer/models/models.dart';
-import 'package:flutter_audioplayer/models/playlist.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 
@@ -48,74 +44,21 @@ class AudioPlayerService {
     }
   }
 
-  // ConcatenatingAudioSource _convertPlayListToConcatenatingAudioSource(Playlist playlist) {
-  //   ConcatenatingAudioSource _concatenatingAudioSourve = ConcatenatingAudioSource(children: []);
-  //   playlist.audios.forEach((audio) {
-  //     switch (audio.audioSource.runtimeType) {
-  //       case ClippingAudioSource:
-  //         var _audioSource = audio.audioSource as ClippingAudioSource;
-  //         _concatenatingAudioSourve.children.add(ClippingAudioSource(
-  //             duration: _audioSource.duration,
-  //             start: _audioSource.start,
-  //             end: _audioSource.end,
-  //             child: AudioSource.uri(_audioSource.child.uri,
-  //                 headers: _audioSource.child.headers,
-  //                 tag: MediaItem(
-  //                   id: audio.id,
-  //                   title: audio.title,
-  //                   album: audio.album,
-  //                   artist: audio.artist,
-  //                   genre: audio.genre,
-  //                   duration: audio.duration,
-  //                   artUri: audio.image,
-  //                   playable: audio.playable,
-  //                   displayTitle: audio.displayTitle,
-  //                   displaySubtitle: audio.displaySubtitle,
-  //                   displayDescription: audio.displayDescription,
-  //                   rating: audio.rating,
-  //                   extras: audio.extras,
-  //                 ))));
-  //         break;
-  //       case UriAudioSource: //AudioSource.uri()
-  //       default:
-  //         var _audioSource = audio.audioSource as UriAudioSource;
-  //         _concatenatingAudioSourve.children.add(AudioSource.uri(_audioSource.uri,
-  //             headers: _audioSource.headers,
-  //             tag: MediaItem(
-  //               id: audio.id,
-  //               title: audio.title,
-  //               album: audio.album,
-  //               artist: audio.artist,
-  //               genre: audio.genre,
-  //               duration: audio.duration,
-  //               artUri: audio.image,
-  //               playable: audio.playable,
-  //               displayTitle: audio.displayTitle,
-  //               displaySubtitle: audio.displaySubtitle,
-  //               displayDescription: audio.displayDescription,
-  //               rating: audio.rating,
-  //               extras: audio.extras,
-  //             )));
-  //     }
-  //   });
-  //   return _concatenatingAudioSourve;
-  // }
-
-  MediaItem _getMediaItemFromAudio(Audio audio) => MediaItem(
-        id: audio.id,
-        title: audio.title,
-        album: audio.album,
-        artist: audio.artist,
-        genre: audio.genre,
-        duration: audio.duration,
-        artUri: audio.image,
-        playable: audio.playable,
-        displayTitle: audio.displayTitle,
-        displaySubtitle: audio.displaySubtitle,
-        displayDescription: audio.displayDescription,
-        rating: audio.rating,
-        extras: audio.extras,
-      );
+  // MediaItem _getMediaItemFromAudio(Audio audio) => MediaItem(
+  //       id: audio.id,
+  //       title: audio.title,
+  //       album: audio.album,
+  //       artist: audio.artist,
+  //       genre: audio.genre,
+  //       duration: audio.duration,
+  //       artUri: audio.image,
+  //       playable: audio.playable,
+  //       displayTitle: audio.displayTitle,
+  //       displaySubtitle: audio.displaySubtitle,
+  //       displayDescription: audio.displayDescription,
+  //       rating: audio.rating,
+  //       extras: audio.extras,
+  //     );
 
   /// adds [List<AudioSource>] to current playlist at the bottom
   void addToPlayList(ConcatenatingAudioSource _playlist, List<AudioSource> list) => _playlist.addAll(list);

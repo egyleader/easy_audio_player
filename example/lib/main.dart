@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_audioplayer/helpers/init_just_audio_background.dart';
-import 'package:flutter_audioplayer/models/notification_configuration.dart';
+import 'package:flutter_audio_player/helpers/init_just_audio_background.dart';
+import 'package:flutter_audio_player/models/notification_configuration.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:audio_service/audio_service.dart';
-import 'package:flutter_audioplayer/widgets/players/full_audio_player.dart';
+import 'package:flutter_audio_player/widgets/players/full_audio_player.dart';
 
 void main() async {
   // init the background service to display notifications while playing

@@ -1,4 +1,3 @@
-import 'package:audio_service/audio_service.dart';
 import 'package:just_audio/just_audio.dart';
 class Audio {
   Audio({
@@ -14,7 +13,7 @@ class Audio {
     this.displayTitle,
     this.displaySubtitle,
     this.displayDescription,
-    this.rating,
+    // this.rating,
     this.extras,
   });
 
@@ -65,44 +64,11 @@ class Audio {
   final String? displayDescription;
 
   /// The rating of the media item.
-  final Rating? rating;
+  // final Rating? rating;
 
   /// A map of additional metadata for the media item.
   ///
   /// The values must be of type `int`, `String`, `bool` or `double`.
   final Map<String, dynamic>? extras;
 
-  Audio copyWith({
-    String? id,
-    AudioSource? audioSource,
-    String? title,
-    String? album,
-    String? artist,
-    String? genre,
-    Duration? duration,
-    Uri? image,
-    bool? playable,
-    String? displayTitle,
-    String? displaySubtitle,
-    String? displayDescription,
-    Rating? rating,
-    Map<String, dynamic>? extras,
-  }) {
-    return Audio(
-      id: id ?? this.id,
-      audioSource: audioSource ?? this.audioSource,
-      title: title ?? this.title,
-      album: album ?? this.album,
-      artist: artist ?? this.artist,
-      genre: genre ?? this.genre,
-      duration: duration ?? this.duration,
-      image: image ?? this.image,
-      playable: playable ?? this.playable,
-      displayTitle: displayTitle ?? this.displayTitle,
-      displaySubtitle: displaySubtitle ?? this.displaySubtitle,
-      displayDescription: displayDescription ?? this.displayDescription,
-      rating: rating ?? this.rating,
-      extras: extras ?? this.extras,
-    );
-  }
 }

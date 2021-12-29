@@ -1,4 +1,4 @@
-# Flutter Audioplayer 
+# Flutter Audio Player 
 
 ### audio player flutter package that provides an easy widgets to  have audio player that can play remote or local audio files across all platforms
 #
@@ -16,7 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
     # add this line 👇
-  flutter_audioplayer: {latest_version}
+  flutter_audio_player: {latest_version}
 ```
 ### 2. platform setup
 

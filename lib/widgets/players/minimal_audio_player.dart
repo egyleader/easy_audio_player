@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_audioplayer/models/playlist.dart';
-import 'package:flutter_audioplayer/services/audio_player_service.dart';
-import 'package:flutter_audioplayer/widgets/buttons/play_button.dart';
+import 'package:flutter_audio_player/services/audio_player_service.dart';
+import 'package:flutter_audio_player/widgets/buttons/play_button.dart';
 import 'package:just_audio/just_audio.dart';
 
 class MinimalAudioPlayer extends StatelessWidget {

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_audioplayer/models/playlist.dart';
-import 'package:flutter_audioplayer/widgets/play_list_View.dart';
+import 'package:flutter_audio_player/widgets/play_list_View.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:just_audio_background/just_audio_background.dart';
-import 'package:flutter_audioplayer/services/audio_player_service.dart';
-import 'package:flutter_audioplayer/widgets/buttons/control_buttons.dart';
-import 'package:flutter_audioplayer/widgets/buttons/loop_button.dart';
-import 'package:flutter_audioplayer/widgets/buttons/shuffle_button.dart';
-import 'package:flutter_audioplayer/widgets/players/minimal_audio_player.dart';
-import 'package:flutter_audioplayer/widgets/seekbar.dart';
+import 'package:flutter_audio_player/services/audio_player_service.dart';
+import 'package:flutter_audio_player/widgets/buttons/control_buttons.dart';
+import 'package:flutter_audio_player/widgets/buttons/loop_button.dart';
+import 'package:flutter_audio_player/widgets/buttons/shuffle_button.dart';
+import 'package:flutter_audio_player/widgets/players/minimal_audio_player.dart';
+import 'package:flutter_audio_player/widgets/seekbar.dart';
 
 class FullAudioPlayer extends StatelessWidget {
   const FullAudioPlayer({Key? key, required this.playlist, this.autoPlay = true}) : super(key: key);
