@@ -36,7 +36,10 @@ class FullAudioPlayer extends StatelessWidget {
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Center(child: Image.network(metadata.artUri.toString())),
+                        child: Center(
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.network(metadata.artUri.toString()))),
                       ),
                     ),
                     //? title and album

@@ -1,7 +1,14 @@
 # Flutter Audio Player 
-
+![flutter audio player package](assets/readme/banner.jpg)
 ### audio player flutter package that provides an easy widgets to  have audio player that can play remote or local audio files across all platforms
 #
+
+## Secreenshots
+ 
+<p float="left">
+ <img src="assets/readme/_screenshot_1.jpg" width="200" />
+  <img src="assets/readme/_screenshot_2.jpg" width="200" />
+</p>
 ## Features
 * easy to use audio players with background service using widgets:
   - MinimalAudioPlayer: just an audio player to play audio with no controles of on play & pause button .
