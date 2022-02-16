@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:flutter_audio_player/models/models.dart';
+import 'package:easy_audio_player/models/models.dart';
 import 'package:just_audio_background/just_audio_background.dart';
 
 Future<void> initJustAudioBackground(NotificationSettings notificationSettings) async => await JustAudioBackground.init(

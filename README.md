@@ -23,7 +23,7 @@ dependencies:
   flutter:
     sdk: flutter
     # add this line 👇
-  flutter_audio_player: {latest_version}
+  easy_audio_player: {latest_version}
 ```
 ### 2. platform setup
 

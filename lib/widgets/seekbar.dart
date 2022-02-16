@@ -1,6 +1,6 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import 'package:easy_audio_player/flutter_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_audio_player/flutter_audio_player.dart';
 
 class AudioPlayerSeekBar extends StatelessWidget {
   const AudioPlayerSeekBar({Key? key, required this.audioPlayer}) : super(key: key);
