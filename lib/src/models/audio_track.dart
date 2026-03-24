@@ -3,7 +3,7 @@ import 'dart:io';
 
 // Not private (_) so it can be accessed by TrackSourceMapper and WaveformWidget
 // in other files within src/. Not exported from easy_audio_player.dart.
-enum TrackSourceType { network, file, asset }
+enum TrackSourceType { network, file }
 
 class AudioTrack {
   final String id;
@@ -17,7 +17,6 @@ class AudioTrack {
   final TrackSourceType _sourceType;
   final String? _url;
   final File? _file;
-  final String? _assetPath;
 
   AudioTrack.network({
     required this.id,
@@ -30,8 +29,7 @@ class AudioTrack {
     this.extras,
   })  : _sourceType = TrackSourceType.network,
         _url = url,
-        _file = null,
-        _assetPath = null;
+        _file = null;
 
   AudioTrack.file({
     required this.id,
@@ -44,28 +42,12 @@ class AudioTrack {
     this.extras,
   })  : _sourceType = TrackSourceType.file,
         _url = null,
-        _file = file,
-        _assetPath = null;
-
-  AudioTrack.asset({
-    required this.id,
-    required String assetPath,
-    required this.title,
-    this.artist,
-    this.album,
-    this.artworkUrl,
-    this.duration,
-    this.extras,
-  })  : _sourceType = TrackSourceType.asset,
-        _url = null,
-        _file = null,
-        _assetPath = assetPath;
+        _file = file;
 
   // Internal accessors for TrackSourceMapper and WaveformWidget
   TrackSourceType get sourceType => _sourceType;
   String? get url => _url;
   File? get file => _file;
-  String? get assetPath => _assetPath;
 
   @override
   bool operator ==(Object other) =>

@@ -54,14 +54,12 @@ class _WaveformWidgetState extends State<WaveformWidget> {
     _lastTrackId = track.id;
 
     // Only supports local files — network tracks not supported by just_waveform
-    if (track.sourceType != TrackSourceType.file && track.sourceType != TrackSourceType.asset) {
+    if (track.sourceType != TrackSourceType.file) {
       setState(() { _waveformStream = null; });
       return;
     }
 
-    final audioFile = track.sourceType == TrackSourceType.file
-        ? track.file!
-        : File(track.assetPath!);
+    final audioFile = track.file!;
 
     setState(() {
       _waveformStream = JustWaveform.extract(

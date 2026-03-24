@@ -1,4 +1,6 @@
 // example/lib/screens/expanded_player_screen.dart
+import 'dart:async';
+
 import 'package:easy_audio_player/easy_audio_player.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +19,8 @@ class _ExpandedPlayerScreenState extends State<ExpandedPlayerScreen> {
 
   void _loadIfNeeded() {
     if (!_loaded) {
-      EasyAudioPlayer.service.load(sampleTracks);
       _loaded = true;
+      unawaited(EasyAudioPlayer.service.load(sampleTracks));
     }
   }
 

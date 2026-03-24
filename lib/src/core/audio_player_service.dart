@@ -212,17 +212,19 @@ class AudioPlayerService implements AudioPlayerServiceInterface {
   @override
   Future<void> move(int from, int to) async {
     if (from < 0 || from >= _queue.length) return;
+    final clampedTo = to.clamp(0, _queue.length - 1);
     final track = _queue.removeAt(from);
-    _queue.insert(to, track);
+    _queue.insert(clampedTo, track);
     _queueSubject.add(List.unmodifiable(_queue));
     final concat = _player.audioSource as ConcatenatingAudioSource?;
-    await concat?.move(from, to);
+    await concat?.move(from, clampedTo);
   }
 
   @override
   Future<void> clear() async {
     _queue.clear();
     _queueSubject.add([]);
+    _currentTrackSubject.add(null);
     await _player.stop();
     final concat = _player.audioSource as ConcatenatingAudioSource?;
     if (concat != null) {
