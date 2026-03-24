@@ -45,4 +45,18 @@ void main() {
     });
   });
 
+  group('AudioTrack equality', () {
+    test('tracks with same id are equal regardless of other fields', () {
+      final a = AudioTrack.network(id: '1', url: 'https://a.com/a.mp3', title: 'A');
+      final b = AudioTrack.network(id: '1', url: 'https://b.com/b.mp3', title: 'B');
+      expect(a, equals(b));
+      expect(a.hashCode, equals(b.hashCode));
+    });
+
+    test('tracks with different ids are not equal', () {
+      final a = AudioTrack.network(id: '1', url: 'https://x.com/t.mp3', title: 'T');
+      final b = AudioTrack.network(id: '2', url: 'https://x.com/t.mp3', title: 'T');
+      expect(a, isNot(equals(b)));
+    });
+  });
 }

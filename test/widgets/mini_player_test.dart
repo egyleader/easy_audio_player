@@ -59,5 +59,61 @@ void main() {
       await tester.tap(find.byType(MiniPlayer));
       expect(tapped, isTrue);
     });
+
+    testWidgets('shows play icon in idle state', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(home: Scaffold(body: MiniPlayer(serviceOverride: mockService))),
+      );
+      expect(find.byIcon(Icons.play_arrow), findsOneWidget);
+    });
+
+    testWidgets('shows pause icon when PlayerPlaying', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(home: Scaffold(body: MiniPlayer(serviceOverride: mockService))),
+      );
+      mockService.emitState(const PlayerPlaying(Duration.zero));
+      await tester.pump();
+      expect(find.byIcon(Icons.pause), findsOneWidget);
+    });
+
+    testWidgets('shows spinner when PlayerBuffering', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(home: Scaffold(body: MiniPlayer(serviceOverride: mockService))),
+      );
+      mockService.emitState(const PlayerBuffering());
+      await tester.pump();
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    });
+
+    testWidgets('tapping play button transitions to playing state', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(home: Scaffold(body: MiniPlayer(serviceOverride: mockService))),
+      );
+      await tester.tap(find.byIcon(Icons.play_arrow));
+      await tester.pump();
+      expect(mockService.playerState, isA<PlayerPlaying>());
+    });
+
+    testWidgets('tapping pause button transitions to paused state', (tester) async {
+      mockService.emitState(const PlayerPlaying(Duration.zero));
+      await tester.pumpWidget(
+        MaterialApp(home: Scaffold(body: MiniPlayer(serviceOverride: mockService))),
+      );
+      await tester.pump();
+      await tester.tap(find.byIcon(Icons.pause));
+      await tester.pump();
+      expect(mockService.playerState, isA<PlayerPaused>());
+    });
+
+    testWidgets('shows artist subtitle when track has artist', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(home: Scaffold(body: MiniPlayer(serviceOverride: mockService))),
+      );
+      mockService.emitCurrentTrack(
+        AudioTrack.network(id: '1', url: 'https://x.com/t.mp3', title: 'Song', artist: 'Band'),
+      );
+      await tester.pump();
+      expect(find.text('Band'), findsOneWidget);
+    });
   });
 }
