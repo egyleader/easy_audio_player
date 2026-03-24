@@ -12,10 +12,10 @@ A Flutter audio player package that combines polished Material 3 UI, background 
 
 <table>
   <tr>
-    <td align="center"><img src="misc/01.png" width="180"/><br/><sub><b>MiniPlayer</b></sub></td>
-    <td align="center"><img src="misc/02.png" width="180"/><br/><sub><b>ExpandedPlayer</b></sub></td>
-    <td align="center"><img src="misc/03.png" width="180"/><br/><sub><b>PlayerControls</b></sub></td>
-    <td align="center"><img src="misc/04.png" width="180"/><br/><sub><b>Features</b></sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/egyleader/easy_audio_player/master/misc/01.png" width="180"/><br/><sub><b>MiniPlayer</b></sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/egyleader/easy_audio_player/master/misc/02.png" width="180"/><br/><sub><b>ExpandedPlayer</b></sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/egyleader/easy_audio_player/master/misc/03.png" width="180"/><br/><sub><b>PlayerControls</b></sub></td>
+    <td align="center"><img src="https://raw.githubusercontent.com/egyleader/easy_audio_player/master/misc/04.png" width="180"/><br/><sub><b>Features</b></sub></td>
   </tr>
 </table>
 
