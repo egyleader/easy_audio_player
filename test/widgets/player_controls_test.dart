@@ -37,5 +37,77 @@ void main() {
       await tester.pump();
       expect(find.byIcon(Icons.volume_up), findsNothing);
     });
+
+    testWidgets('shows shuffle button when showShuffle=true', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: PlayerControls(showShuffle: true, serviceOverride: mockService),
+          ),
+        ),
+      );
+      await tester.pump();
+      expect(find.byIcon(Icons.shuffle), findsOneWidget);
+    });
+
+    testWidgets('hides shuffle button when showShuffle=false', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: PlayerControls(showShuffle: false, serviceOverride: mockService),
+          ),
+        ),
+      );
+      await tester.pump();
+      expect(find.byIcon(Icons.shuffle), findsNothing);
+    });
+
+    testWidgets('shows loop button when showLoop=true', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: PlayerControls(showLoop: true, serviceOverride: mockService),
+          ),
+        ),
+      );
+      await tester.pump();
+      expect(find.byIcon(Icons.repeat), findsOneWidget);
+    });
+
+    testWidgets('shows speed slider when showSpeed=true', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: PlayerControls(showSpeed: true, serviceOverride: mockService),
+          ),
+        ),
+      );
+      await tester.pump();
+      // Speed row shows the current speed label
+      expect(find.textContaining('x'), findsOneWidget);
+    });
+
+    testWidgets('tapping play button transitions to playing state', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(body: PlayerControls(serviceOverride: mockService)),
+        ),
+      );
+      await tester.pump();
+      await tester.tap(find.byIcon(Icons.play_circle_filled));
+      await tester.pump();
+      expect(mockService.playerState, isA<PlayerPlaying>());
+    });
+
+    testWidgets('shows replay icon when PlayerCompleted', (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(body: PlayerControls(serviceOverride: mockService)),
+        ),
+      );
+      mockService.emitState(const PlayerCompleted());
+      await tester.pump();
+      expect(find.byIcon(Icons.replay), findsOneWidget);
+    });
   });
 }
