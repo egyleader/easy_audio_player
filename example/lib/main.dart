@@ -1,70 +1,91 @@
+// example/lib/main.dart
 import 'package:easy_audio_player/easy_audio_player.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/expanded_player_screen.dart';
+import 'screens/features_screen.dart';
+import 'screens/mini_player_screen.dart';
+import 'screens/player_controls_screen.dart';
+
 void main() async {
-  // Initialize EasyAudioPlayer with notification configuration
+  WidgetsFlutterBinding.ensureInitialized();
+
   await EasyAudioPlayer.init(
-    config: AudioPlayerConfig(
-      androidNotificationChannelId: 'com.example.example',
-      androidNotificationChannelName: 'Music',
+    config: const AudioPlayerConfig(
+      androidNotificationChannelId: 'com.example.easy_audio_player',
+      androidNotificationChannelName: 'Easy Audio Player',
     ),
   );
-  runApp(const MyApp());
+
+  runApp(const ExampleApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class ExampleApp extends StatelessWidget {
+  const ExampleApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Easy Audio Player',
-      theme: ThemeData(useMaterial3: true),
-      home: const HomeScreen(),
+      title: 'easy_audio_player Demo',
+      theme: ThemeData(
+        colorSchemeSeed: Colors.deepPurple,
+        useMaterial3: true,
+      ),
+      darkTheme: ThemeData(
+        colorSchemeSeed: Colors.deepPurple,
+        brightness: Brightness.dark,
+        useMaterial3: true,
+      ),
+      home: const AppShell(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class AppShell extends StatefulWidget {
+  const AppShell({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<AppShell> createState() => _AppShellState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void initState() {
-    super.initState();
-    _loadPlaylist();
-  }
+class _AppShellState extends State<AppShell> {
+  int _currentIndex = 0;
 
-  Future<void> _loadPlaylist() async {
-    final service = EasyAudioPlayer.service;
-    final track = AudioTrack.network(
-      url: 'https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3',
-      id: '1',
-      title: 'Audio Title',
-      album: 'Amazing Album',
-      artworkUrl: 'https://picsum.photos/300/300',
-    );
-    await service.load([track]);
-  }
+  final _screens = const [
+    MiniPlayerScreen(),
+    ExpandedPlayerScreen(),
+    PlayerControlsScreen(),
+    FeaturesScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Easy Audio Player')),
-      body: const SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Center(
-            child: ExpandedPlayer(
-              showPlaylist: true,
-              showWaveform: true,
-            ),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _screens,
+      ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentIndex,
+        onDestinationSelected: (i) => setState(() => _currentIndex = i),
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.bar_chart),
+            label: 'Mini',
           ),
-        ),
+          NavigationDestination(
+            icon: Icon(Icons.music_note),
+            label: 'Expanded',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.tune),
+            label: 'Controls',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.science_outlined),
+            label: 'Features',
+          ),
+        ],
       ),
     );
   }
