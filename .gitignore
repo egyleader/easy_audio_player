@@ -27,3 +27,11 @@
 .dart_tool/
 .packages
 build/
+
+# Generated / tool output
+coverage/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Research / scratch files
+RESEARCH_ANALYSIS.md
