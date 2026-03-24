@@ -33,7 +33,7 @@ A Flutter audio player package that combines polished Material 3 UI, background 
 
 ```yaml
 dependencies:
-  easy_audio_player: ^1.0.0-beta.1
+  easy_audio_player: ^1.0.0
 ```
 
 ---

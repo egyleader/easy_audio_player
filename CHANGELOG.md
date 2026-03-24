@@ -1,6 +1,6 @@
-## 1.0.0-beta.1
+## 1.0.0
 
-* First public pre-release.
+* First stable release.
 * `MiniPlayer`, `ExpandedPlayer`, `PlayerControls` widgets with Material 3 adaptive theming.
 * Background playback with lock-screen notification controls via `just_audio_background`.
 * Playlist management: load, add, remove, reorder, shuffle, loop.
@@ -9,7 +9,6 @@
 * `AudioTrack.network` and `AudioTrack.file` constructors.
 * BehaviorSubject-backed streams: `playerStateStream`, `currentTrackStream`, `positionStream`, `queueStream`, `errorStream`.
 * Auto-skip on track error with `errorStream` emission.
-* Published as pre-release because `just_audio_background` has no stable release yet.
 
 ## 0.0.1
 
