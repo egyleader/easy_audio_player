@@ -33,4 +33,7 @@ class TrackSourceMapper {
         ),
     };
   }
+
+  static List<AudioSource> toAudioSources(List<AudioTrack> tracks) =>
+      tracks.map(toAudioSource).toList();
 }
