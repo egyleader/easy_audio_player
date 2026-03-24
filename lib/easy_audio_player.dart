@@ -4,3 +4,4 @@ export 'src/models/audio_player_error.dart';
 export 'src/models/easy_loop_mode.dart';
 export 'src/core/audio_player_state.dart';
 export 'src/core/audio_player_config.dart';
+export 'src/core/easy_audio_player.dart';
