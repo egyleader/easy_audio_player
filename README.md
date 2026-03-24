@@ -3,7 +3,7 @@
 A Flutter audio player package that combines polished Material 3 UI, background playback with lock-screen notifications, and a simple one-line setup.
 
 ![pub.dev](https://img.shields.io/pub/v/easy_audio_player)
-![coverage](https://img.shields.io/badge/coverage-41%25-yellow)
+![coverage](https://img.shields.io/badge/coverage-51%25-yellow)
 ![platforms](https://img.shields.io/badge/platform-android%20%7C%20ios%20%7C%20macOS-blue)
 
 ---
