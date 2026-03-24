@@ -1,5 +1,4 @@
 // test/helpers/mock_audio_player_service.dart
-import 'package:easy_audio_player/src/core/audio_player_service_interface.dart';
 import 'package:easy_audio_player/easy_audio_player.dart';
 import 'package:rxdart/rxdart.dart';
 
