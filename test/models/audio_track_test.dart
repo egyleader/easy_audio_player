@@ -45,15 +45,4 @@ void main() {
     });
   });
 
-  group('AudioTrack.asset', () {
-    test('sets assetPath and required fields', () {
-      final track = AudioTrack.asset(
-        id: '3',
-        assetPath: 'assets/audio/intro.mp3',
-        title: 'Intro',
-      );
-      expect(track.id, '3');
-      expect(track.title, 'Intro');
-    });
-  });
 }

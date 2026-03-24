@@ -69,28 +69,6 @@ class _FeaturesScreenState extends State<FeaturesScreen> {
           ),
 
           const Divider(),
-          _SectionHeader('Asset Playback'),
-          ListTile(
-            leading: const Icon(Icons.folder),
-            title: const Text('Play bundled asset'),
-            subtitle: const Text('Plays assets/audio/sample.mp3'),
-            trailing: FilledButton.tonal(
-              onPressed: () {
-                unawaited(service.load([
-                  AudioTrack.asset(
-                    id: 'asset_demo',
-                    assetPath: 'assets/audio/sample.mp3',
-                    title: 'Bundled Asset Track',
-                    artist: 'Local',
-                  ),
-                ]));
-                unawaited(service.play());
-              },
-              child: const Text('Play'),
-            ),
-          ),
-
-          const Divider(),
           _SectionHeader('Loop Mode'),
           StreamBuilder<EasyLoopMode>(
             stream: service.loopModeStream,

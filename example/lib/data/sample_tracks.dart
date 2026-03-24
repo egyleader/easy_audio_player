@@ -2,7 +2,7 @@
 import 'package:easy_audio_player/easy_audio_player.dart';
 
 /// Sample tracks used across all example screens.
-/// Mix of network, asset, and an intentionally broken URL for error demos.
+/// Mix of network tracks and an intentionally broken URL for error demos.
 final sampleTracks = [
   AudioTrack.network(
     id: 'track_1',
@@ -20,14 +20,6 @@ final sampleTracks = [
     artist: 'SoundHelix',
     album: 'Sample Album',
     artworkUrl: 'https://picsum.photos/seed/track2/300/300',
-  ),
-  AudioTrack.asset(
-    id: 'track_asset',
-    assetPath: 'assets/audio/sample.mp3',
-    title: 'Bundled Asset Track',
-    artist: 'Local',
-    album: 'Device',
-    artworkUrl: 'https://picsum.photos/seed/asset/300/300',
   ),
   AudioTrack.network(
     id: 'track_3',

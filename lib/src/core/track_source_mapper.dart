@@ -27,10 +27,6 @@ class TrackSourceMapper {
           track.file!.uri,
           tag: tag,
         ),
-      TrackSourceType.asset => AudioSource.asset(
-          track.assetPath!,
-          tag: tag,
-        ),
     };
   }
 
