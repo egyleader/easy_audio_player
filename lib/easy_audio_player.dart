@@ -9,3 +9,4 @@ export 'src/core/easy_audio_player.dart';
 export 'src/widgets/components/waveform_widget.dart' show isWaveformSupported;
 export 'src/widgets/mini_player.dart';
 export 'src/widgets/expanded_player.dart';
+export 'src/widgets/player_controls.dart';
